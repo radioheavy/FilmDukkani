@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project.ENTITIES.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,11 @@ using System.Threading.Tasks;
 
 namespace Project.MAP.Options
 {
-    internal class AppUserMap
+    public class AppUserMap : BaseMap<AppUser>
     {
+        public AppUserMap()
+        {
+            HasOptional(x => x.Profile).WithRequired(x => x.AppUser);
+        }
     }
 }
