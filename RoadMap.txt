@@ -1,0 +1,44 @@
+Evet, anladýðým kadarýyla web siteniz DVD kiralama hizmeti sunan bir web sitesi. Bu projeyi gerçekleþtirmek için aþaðýdaki adýmlarý takip edebilirsiniz:
+
+Öncelikle, ENTITIES katmanýnda veritabanýnýzda tutulacak verileri tanýmlayýn. 
+Örneðin, kullanýcý bilgilerini tutacak bir "Kullanýcý" sýnýfý, üyelik paketlerini tutacak bir "ÜyelikPaketi" sýnýfý, kiralanacak filmleri tutacak bir "Film" sýnýfý ve kiralama iþlemlerini tutacak bir "Kiralama" sýnýfý tanýmlayabilirsiniz.
+
+MAP katmanýnda, veritabanýnýzdaki tablolar ile bu tablolarý temsil eden C# sýnýflarý arasýndaki iliþkiyi tanýmlayýn. Örneðin, "Kullanýcý" sýnýfý ile "ÜyelikPaketi" sýnýfý arasýndaki iliþkiyi tanýmlayarak, bir kullanýcýnýn birden fazla üyelik paketine sahip olabileceðini belirtin. Ayrýca, "Film" sýnýfý ile "Kiralama" sýnýfý arasýndaki iliþkiyi tanýmlayarak, bir filmin birden fazla kez kiralanabileceðini belirtin. Bu iliþkileri tanýmlamak için bir veritabaný oluþturma aracý (örneðin Entity Framework) kullanabilirsiniz.
+
+DAL (Data Access Layer) katmanýnda, veritabanýnýza eriþmek için gerekli kodlarý yazýn. Bu katmanda, veritabanýna SQL sorgularý göndererek verileri çekme, ekleme, güncelleme ve silme iþlemlerini gerçekleþtirebil
+
+DAL katmanýnýn yanýnda, BLL (Business Logic Layer) katmanýnda da web sitenizin iþlevselliðini gerçekleþtirecek kodlarý yazabilirsiniz. Bu katmanda, üyelik paketlerinin seçimi, ödeme iþlemlerinin doðrulanmasý, filmlerin listesine eklenmesi ve kiralama iþlemlerinin gerçekleþtirilmesi gibi iþlemlerin nasýl gerçekleþtirileceðini tanýmlayabilirsiniz.
+
+COMMON katmanýnda ise, web sitenizin tüm katmanlarý tarafýndan ortak olarak kullanýlabilecek sýnýflarý tanýmlayabilirsiniz. 
+Örneðin, bir hata mesajýnýn nasýl gösterileceðini tanýmlayan bir "Hata" sýnýfý, bir e-posta mesajýnýn nasýl gönderileceðini tanýmlayan bir "EPosta" sýnýfý gibi.
+
+API-UI katmanýnda ise, web sitenizin dýþarý açýlan API'lerini tanýmlayabilirsiniz. 
+Bu katmanda, üye olma iþlemini gerçekleþtiren bir "ÜyeOl" API'sý, filmlerin listesine eklenmesini gerçekleþtiren bir "FilmEkle" API'sý gibi API'ler tanýmlayabilirsiniz. 
+Bu API'leri kullanarak, web sitenizi kullanan baþka uygulamalar tarafýndan da kullanýlabilir hale getirebilirsiniz.
+
+DTO (Data Transfer Object) katmanýnda, web sitenizin API'lerini oluþturabilirsiniz. 
+Bu katmanda, web sitenizin dýþarý açýlan API'lerine gönderilecek veya bu API'lerden alýnacak verileri temsil eden sýnýflar tanýmlayabilirsiniz. 
+Bu sayede, web sitenizin API'leri esnek ve proje bazlý olarak geliþtirilebilir.
+
+UI (User Interface) katmanýnda, web sitenizin kullanýcý arayüzünü oluþturabilirsiniz. 
+Bu katmanda, MVC (Model-View-Controller) tasarým kalýbýný kullanarak, web sitenizin sayfalarýný oluþturabilir ve kullanýcýlarýn karþýlaþacaðý arayüzü tasarýyabilirsiniz.
+
+
+
+
+
+
+
+Bu projeyi gerçekleþtirirken, aþaðýdaki tasarým kalýplarýný kullanarak kodlarýnýzý daha kolay anlaþýlýr, test edilebilir ve deðiþtirilebilir hale getirebilirsiniz:
+
+
+Generic Repository kalýbý sayesinde, veritabanýna eriþim iþlemleri için yazacaðýnýz kodlarý tek bir yerde toplayarak, kod tekrarýný azaltabilir ve kodlarýnýzý daha okunaklý hale getirebilirsiniz.
+
+
+Singleton Pattern kalýbý sayesinde, tek bir nesneye ihtiyaç duyduðunuz sýnýflarý (örneðin, veritabaný eriþim nesneleri gibi) tek bir nesne üzerinden yönetebilir ve bu nesneye birden fazla kez eriþim saðlayabilirsiniz. 
+Bu sayede, sistem kaynaklarýný daha verimli kullanabilir ve sýnýflarýnýzýn thread-safe olmasýný saðlayabilirsiniz.
+
+
+Strategy Pattern kalýbý sayesinde, benzer iþlevleri gerçekleþtiren farklý sýnýflar arasýnda seçim yapabilir ve bu seçime göre sýnýflarýnýzýn iþlevselliðini deðiþtirebilirsiniz. 
+Örneðin, ödeme iþlemlerini gerçekleþtiren farklý sýnýflarýnýz olabilir ve bu sýnýflarýn iþlevselliðini kullanýcýnýn seçtiði üyelik paketine göre deðiþtirebilirsiniz. 
+Bu sayede, sýnýflarýnýzý daha esnek ve deðiþtirilebilir hale getirebilirsiniz.

@@ -1,0 +1,43 @@
+1=> Öncelikle katmanlarýmýzý (Project.ENTITIES, Project.MAP, Project.DAL,Project.BLL katmanlarýný) class library (.Net Framework) olarak acýyoruz(Solution'imiza sag týklayýp Add New Project diyerek)...UI katmaný hangi display'de istiyorsanýz o platformda acýlmalýdýr...Bizim burada kullandýgýmýz Display Windows Form olarak secilmiþtir...
+
+Sonra kesinlikle UI katmaýný Set As Startup Project olarak ayarlamalýsýnýz...
+
+
+N-Tier
+
+---Entities Katmaný---
+*Veritabanýnda tabloya donusecek olan sýnýflarýmýzý ve enum'larýmýzý icerecek olan katmandýr...
+
+
+---DAL Katmaný---
+*Veritabanýnýz ile haberleþecek ve veritabanýnýzýn olusmasýný saglayacak katmandýr
+
+
+---Map Katmaný---
+*Veritabaný ayarlamalarýnýzý hazýr bulundurup DAL'e gönderecek katmandýr...
+
+---BLL Katmaný---
+*Ýþ akýþýnýzý belirleyecek olan katmandýr
+
+---UI Katmaný---
+*Kullanýcýnýn etkileþime geçecegi projeyi oluþturan katmandýr
+
+--Sýra
+
+1 =>  Once Entities'e baslýyoruz...Entities'de sýnýflarýmýzý tamamladýktan sonra Map katmanýna geciyoruz...
+
+2 => Map Katmanýna geciyoruz...Map katmanýnda  Veritabaný ayarlamalarý yapacagýmýz icin Entity Framework'un bu katmana indirilmesi lazým... Bütün ayarlama iþlemleri Entity Framework'ten gelir...Sonra ayarlama yapacak iþlemlerimizi yapmamýz gerekir...Ayný zamanda Map katmanýmýza Entity Framework indirmeyi unutmadýk...Ve Map katmanýmýz Entities katmanýndaki class'larý kullanmak istedigi icin o projeden referans aldý...
+
+3 =>  DAL katmanýna geciyoruz...Context class'ýmýzý tasarlýyoruz...Lakin burada bu katmana EntityFramework'u indirmeyi unutmamalýsýnýz... Ayný zamanda DAL katmaný, MAP ve ENTITIES katmanlarýný referans almalýdýr...Önemli olan bir diger nokta da adresimizi belirlemek icin gecici bir süre UI katmanýna gitmek gerektigidir...Cünkü artýk bu katmandan sonra Veritabaný olusturma testi yapýlmalýdýr..Veritabaný olusturmak icin adresi belirleyebilmemiz lazým...
+
+              ---UI katmanýna gecip Entity Framework'u indirin... Ýndirdikten sonra appconfig kýsmýna connectionstring'inizi yazýn...Sonraki adýmýnýz Package Manager Console'u acýn...Ve actýgýnýz zaman da dikkat edin, konsolun calýsacagý proje sizin Context sýnýfýnýzýn bulundugu proje olmalýdýr...
+
+4 => BLL katmanýna geciyoruz...  Entity Framework'u indiriyoruz...DAL ve ENTITIES katmanlarýndan referans alýyoruz...Sonra SingletonPattern sistemimizi olusturuyoruz...Sonra Generic Repository paternine geciyoruz...
+
+Generic Repository => Gercekleþmesini istedigimiz iþlemlerin görevlerini barýndýran ve bizim verdigimiz tipte göre iþlem yapacak yapýlarýn olusturuldugu bir yapý algoritmasýný kuran bir Design Pattern'dir...
+
+BU patternde, hem tekrar kullanýlabilirligi arttýrmak hem de projenin esnekligini saglamak adýna iþ akýþýmýzýn talep ettigi görevleri uygulayacak metotlar önce Interface'de tanýmlanýr...Cünkü direkt class'ta bunlarý tanýmlarsak baska bir platform/teknolojiye gectigimizde o platformun/teknolojinin kullandýgý class'lar baska class'lardan miras almýs olabilir ve bizim class'ýmýzý bu yüzden miras alamayarak metotlarýmýzý tanýmazlar...
+
+Önce Generic Repository'nin Interface'ini acarak baslýyoruz. Sonra BaseRepository'i ve Conc class'larýmýzý tanýmlýyoruz...
+
+5 => UI katmanýna geciyoruz...
