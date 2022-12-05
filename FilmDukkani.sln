@@ -11,8 +11,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.ENTITIES", "Project
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MAP", "Project.MAP\Project.MAP.csproj", "{D9DCF118-B7E7-4F3F-A085-463FAE028386}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.WinUI", "Project.WinUI\Project.WinUI.csproj", "{E84F0FE5-8D65-4F81-AD39-6F55B855DC15}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{D414CF82-0AEA-41BC-87D1-F7F2560FA636}"
 	ProjectSection(SolutionItems) = preProject
 		Katmanlar Hakkında.txt = Katmanlar Hakkında.txt
@@ -49,10 +47,6 @@ Global
 		{D9DCF118-B7E7-4F3F-A085-463FAE028386}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9DCF118-B7E7-4F3F-A085-463FAE028386}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9DCF118-B7E7-4F3F-A085-463FAE028386}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E84F0FE5-8D65-4F81-AD39-6F55B855DC15}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E84F0FE5-8D65-4F81-AD39-6F55B855DC15}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E84F0FE5-8D65-4F81-AD39-6F55B855DC15}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E84F0FE5-8D65-4F81-AD39-6F55B855DC15}.Release|Any CPU.Build.0 = Release|Any CPU
 		{98F81673-0D5F-4E58-BDE1-15366E9221D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{98F81673-0D5F-4E58-BDE1-15366E9221D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98F81673-0D5F-4E58-BDE1-15366E9221D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
