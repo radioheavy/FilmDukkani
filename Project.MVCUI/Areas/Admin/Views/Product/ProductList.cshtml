@@ -1,0 +1,78 @@
+﻿@model ProductVM
+
+@{
+    ViewBag.Title = "ProductList";
+}
+<script src="~/OuterTools/LightBox/lightbox-2.6.min.js"></script>
+<link href="~/OuterTools/LightBox/lightbox.css" rel="stylesheet" />
+
+
+<section class="panel">
+    <header class="panel-heading">
+        @Html.ActionLink("Ürün ekle", "AddProduct", "Product", null, new { @class = "btn btn-primary" })
+    </header>
+    <div class="panel-body">
+        <div class="adv-table">
+            <table cellpadding="0" cellspacing="0" border="0" class="display table table-bordered" id="hidden-table-info">
+                <thead>
+                    <tr>
+                        <th>Ürün ID</th>
+                        <th>Ürün ismi</th>
+                        <th class="hidden-phone">Ürün Fiyatı</th>
+                        <th class="hidden-phone">Ürün Stok</th>
+                        <th class="hidden-phone">Ürün Kategorisi</th>
+                        <th>Ürün Resmi</th>
+                        <th class="hidden-phone">Durum</th>
+                        <th class="hidden-phone">Sil</th>
+                        <th class="hidden-phone">Güncelle</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (Product item in Model.Products)
+                    {
+                        <tr class="gradeX">
+                            <td>@item.ID</td>
+                            <td>
+                                @item.ProductName
+                            </td>
+                            <td>@item.UnitPrice</td>
+                            <td>@item.UnitsInStock</td>
+                            @if (item.Category == null)
+                            {
+                                <td>Kategorisi Belirtilmemiş</td>
+                            }
+                            else
+                            {
+                                <td>@item.Category.CategoryName</td>
+                            }
+                        <td>  
+                            <a href="@item.ImagePath" class="example-image-link" data-lightbox="example-1"> 
+                                
+                                
+                                <img  width="30" height="30" title="@item.ProductName" src="@item.ImagePath" />
+                            
+                            
+                            </a>     
+                        
+                        
+                        
+                        
+                        </td>
+                            <td class="center hidden-phone">@item.Status</td>
+                            <td class="center hidden-phone"> @Html.ActionLink("Sil", "DeleteProduct", new { id = item.ID }, new { @class = "btn btn-danger" })  </td>
+                            <td class="center hidden-phone">  @Html.ActionLink("Güncelle", "UpdateProduct", new { id = item.ID }, new { @class = "btn btn-warning" })  </td>
+                        </tr>
+                    }
+
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</section>
+
+<script src="~/Areas/Admin/AdminScripts/AdminProductDTJ.js"></script>
