@@ -51,6 +51,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DesignPatterns\SingletonPattern\DBTool.cs" />
+    <Compile Include="GenericRepository\BaseRep\BaseRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\ShipperRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\ProfileRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\ProductRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\OrderRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\OrderDetailRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\CategoryRepository.cs" />
+    <Compile Include="GenericRepository\ConcRep\AppUserReporsitory.cs" />
+    <Compile Include="GenericRepository\IntRep\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +81,7 @@
       <Name>Project.ENTITIES</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
